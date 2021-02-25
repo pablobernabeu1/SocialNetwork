@@ -33,7 +33,7 @@ header {
     right: 0;
 }
 
-    .header a {
+    header a {
         color: white;
         text-decoration: none;
     }
@@ -124,4 +124,40 @@ footer {
                         background: #4a4a4a;
                     }
 
+}
+
+/* Estilos para la página de Log In */
+
+.box-logIn {
+    position = fixed;
+    width: 30%;
+    min-width: 350px;
+    margin-top:200px;
+    margin-left: 37%;
+    margin-right: 25%;
+
+    background: #f2f2f2;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.img-logIn {
+    width: 100px;
+    position = fixed;
+    margin-top: 20px;
+    margin-left: 37%;
+}
+
+.form-logIn {
+    color: black;
+    border: 5px solid black;
+    border-radius: 10px;
+    text-align: center;
+
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 15px;
 }
