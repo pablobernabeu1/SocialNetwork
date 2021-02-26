@@ -93,7 +93,8 @@ footer {
     .menu-icon {
         display: block;
         cursor: pointer;
-        padding: 0.5rem 1rem;
+        /*padding: 0.5rem 1rem;*/
+        width: 100px;
     }
 
     .navigation {
@@ -160,4 +161,20 @@ footer {
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 15px;
+}
+
+
+
+/* Estilos para la página de Sign In */
+
+.registro-div {
+  margin-top: 150px;
+  margin-left:20%;
+  margin-right:20%;
+}
+
+@media only screen and (max-width: 767px) {
+  .registro-div{
+    margin-top: 35%;
+  }
 }
