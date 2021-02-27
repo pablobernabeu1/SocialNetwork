@@ -85,6 +85,7 @@ footer {
     padding: 4rem 0;
     text-align: center;
     margin-top: 6rem;
+    bottom: 0;
 }
 
 
@@ -178,3 +179,8 @@ footer {
     margin-top: 35%;
   }
 }
+
+
+
+
+/* Ejemplos de prueba */
