@@ -5,6 +5,7 @@
       <title>Inicio sesión</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/estilos.css" rel="stylesheet">
 
   </head>
@@ -24,21 +25,20 @@
         </div>
       </header>
 
-
-
-      <div class="box-logIn">
-        <img src="logo/logo_small.png" class="img-logIn">
-
-        <form class="form-logIn">
-
-          <label>Email</label><br/>
-          <input type="text" name="username"><br/>
-          <label>Password</label><br/>
-          <input type="password" name="password"><br/>
-
-        </form>
-
-      </div>
+      <main class="inicio-main">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword">
+          </div>
+        </div>
+      </main>
 
       <footer>
         <div class="container">
