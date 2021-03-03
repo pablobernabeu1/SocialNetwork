@@ -1,7 +1,7 @@
 <?php
-include_once 'app/Conexion.inc.php';
-include_once 'app/RepositorioUsuario.inc.php';
-include_once 'app/ValidadorRegistro.inc.php';
+include_once "app/Conexion.inc.php";
+include_once "app/RepositorioUsuario.inc.php";
+include_once "app/ValidadorRegistro.inc.php";
 
 ?>
 
@@ -20,11 +20,11 @@ include_once 'app/ValidadorRegistro.inc.php';
   <body>
       <header>
         <div class="container logo-nav-container">
-          <a href="index.html" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
+          <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
           <span class="menu-icon">Ver menú</span>
           <nav class="navigation">
               <ul>
-                  <li><a href="index.html">Inicio</a></li>
+                  <li><a href="index.php">Inicio</a></li>
                   <li><a href="#">Log In</a></li>
                   <li><a href="signInPage.php">Sign In</a></li>
                   <li><a href="#">Contacto</a></li>

@@ -1,7 +1,7 @@
 <?php
-  include_once 'app/Conexion.inc.php';
-  include_once 'app/RepositorioUsuario.inc.php';
-  include_once 'app/ValidadorRegistro.inc.php';
+  include_once "app/Conexion.inc.php";
+  include_once "app/RepositorioUsuario.inc.php";
+  include_once "app/ValidadorRegistro.inc.php";
 
 ?>
 
@@ -26,7 +26,7 @@
                 <nav class="navigation">
                     <ul>
                         <li><a href="#">Inicio</a></li>
-                        <li><a href="logInPage.html">Log In</a></li>
+                        <li><a href="logInPage.php">Log In</a></li>
                         <li><a href="signInPage.php">Sign In</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>

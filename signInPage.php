@@ -1,14 +1,29 @@
 <?php
-  include_once 'app/Conexion.inc.php';
-  include_once 'app/RepositorioUsuario.inc.php';
-  include_once 'app/ValidadorRegistro.inc.php';
+  include_once "app/Conexion.inc.php";
+  include_once "app/Usuario.inc.php";
+  include_once "app/RepositorioUsuario.inc.php";
+  include_once "app/ValidadorRegistro.inc.php";
+  include_once "app/config.inc.php";
 
   if(isset($_POST['enviar'])){
+    Conexion::abrir_conexion();
+
     $validador = new ValidadorRegistro($_POST['email'], $_POST['nombre'], $_POST['password'], $_POST['password2']);
 
     if($validador->registro_valido()){
-      echo "TODO CORRECTO.";
+      $usuario = new Usuario('', $validador->obtener_nombre(), $validador->obtener_email(), $validador->obtener_password(), '', '');
+      $usuario_insertado = RepositorioUsuario::insertar_usuario(Conexion::obtener_conexion(), $usuario);
+
+      if($usuario_insertado){
+        // Redirigir a LogIn
+
+
+
+      }
+
     }
+
+    Conexion::cerrar_conexion();
   }
 ?>
 
@@ -28,12 +43,12 @@
   <body>
       <header>
         <div class="container logo-nav-container">
-          <a href="index.html" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
+          <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
           <span class="menu-icon">Ver menú</span>
           <nav class="navigation">
               <ul>
-                  <li><a href="index.html">Inicio</a></li>
-                  <li><a href="logInPage.html">Log In</a></li>
+                  <li><a href="index.php">Inicio</a></li>
+                  <li><a href="logInPage.php">Log In</a></li>
                   <li><a href="#">Sign In</a></li>
                   <li><a href="#">Contacto</a></li>
               </ul>
@@ -47,10 +62,10 @@
 
           <?php
             if(isset($_POST['enviar'])){
-              include_once 'plantillas/registro_validado.inc.php';
+              include_once "plantillas/registro_validado.inc.php";
             }
             else{
-              include_once 'plantillas/registro_vacio.inc.php';
+              include_once "plantillas/registro_vacio.inc.php";
             }
           ?>
 

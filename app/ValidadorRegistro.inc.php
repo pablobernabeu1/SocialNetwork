@@ -7,6 +7,7 @@ class ValidadorRegistro {
 
   private $email;
   private $nombre;
+  private $password;
 
   private $error_email;
   private $error_nombre;
@@ -19,11 +20,17 @@ class ValidadorRegistro {
 
     $this->email = "";
     $this->nombre= "";
+    $this->password="";
 
     $this->error_nombre = $this->validar_nombre($nombre);
     $this->error_email = $this->validar_email($email);
     $this->error_password = $this->validar_clave1($password);
     $this->error_password2 = $this->validar_clave2($password, $password2);
+
+    if($this->error_password==="" && $this->error_password2===""){
+      $this->password = $password;
+    }
+
   }
 
   public function variable_iniciada($variable){  // Función que comprueba si una variable ha sido inicializada
@@ -95,6 +102,10 @@ class ValidadorRegistro {
 
   public function obtener_email(){
     return $this->email;
+  }
+
+  public function obtener_password(){
+    return $this->password;
   }
 
   public function obtener_error_nombre(){
