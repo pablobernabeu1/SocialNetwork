@@ -47,6 +47,7 @@ include_once "app/ValidadorRegistro.inc.php";
           </div>
         </div>
       </main>
+      
 
       <footer>
         <div class="container">

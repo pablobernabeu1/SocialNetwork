@@ -8,7 +8,7 @@
   if(isset($_POST['enviar'])){
     Conexion::abrir_conexion();
 
-    $validador = new ValidadorRegistro($_POST['email'], $_POST['nombre'], $_POST['password'], $_POST['password2']);
+    $validador = new ValidadorRegistro($_POST['email'], $_POST['nombre'], $_POST['password'], $_POST['password2'], Conexion::obtener_conexion());
 
     if($validador->registro_valido()){
       $usuario = new Usuario('', $validador->obtener_nombre(), $validador->obtener_email(), $validador->obtener_password(), '', '');

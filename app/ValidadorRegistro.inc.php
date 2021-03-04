@@ -1,4 +1,5 @@
 <?php
+include_once "RepositorioUsuario.inc.php";
 
 class ValidadorRegistro {
 
@@ -14,16 +15,16 @@ class ValidadorRegistro {
   private $error_password;
   private $error_password2;
 
-  public function __construct($email, $nombre, $password, $password2){
-    $this->aviso_inicio = "<br><div class='alert alert-dange' role='alert'>";
+  public function __construct($email, $nombre, $password, $password2, $conexion){
+    $this->aviso_inicio = "<br><div class='alert alert-danger' role='alert'>";
     $this->aviso_cierre = "</div>";
 
     $this->email = "";
     $this->nombre= "";
     $this->password="";
 
-    $this->error_nombre = $this->validar_nombre($nombre);
-    $this->error_email = $this->validar_email($email);
+    $this->error_nombre = $this->validar_nombre($conexion, $nombre);
+    $this->error_email = $this->validar_email($conexion, $email);
     $this->error_password = $this->validar_clave1($password);
     $this->error_password2 = $this->validar_clave2($password, $password2);
 
@@ -40,7 +41,7 @@ class ValidadorRegistro {
     return false;
   }
 
-  private function validar_nombre($nombre){  // Función que comprueba si el nombre es correcto
+  private function validar_nombre($conexion, $nombre){  // Función que comprueba si el nombre es correcto
     if(!$this->variable_iniciada($nombre)){
       return "Debes escribir un nombre de usuario.";
     }
@@ -56,16 +57,24 @@ class ValidadorRegistro {
       return "El nombre no puede ocupar más de 24 caracteres.";
     }
 
+    if(RepositorioUsuario::nombre_exite($conexion, $nombre)){
+      return "Este nombre ya está en uso, porfavor pruebe otro nombre.";
+    }
+
     return "";
 
   }
 
-  private function validar_email($email){ // Función que comprueba si el email es correcto
+  private function validar_email($conexion, $email){ // Función que comprueba si el email es correcto
     if(!$this->variable_iniciada($email)){
       return "Debes proporcionar un email.";
     }
     else{
       $this->email = $email;
+    }
+
+    if(RepositorioUsuario::email_exite($conexion, $email)){
+      return "Este email ya está en uso. Porfavor pruebe otro email <br> o <a href='#'>intente recuperar su contraseña</<a>.";
     }
 
     return "";

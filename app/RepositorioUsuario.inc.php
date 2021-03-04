@@ -28,7 +28,7 @@ class RepositorioUsuario {
                 }
 
             } catch (PDOException $ex) {
-                print "Error" . $ex -> getMessage();
+                print "Error: " . $ex -> getMessage();
             }
 
         }
@@ -87,6 +87,70 @@ class RepositorioUsuario {
       }
 
       return $usuario_insertado;
+    }
+
+    public static function nombre_exite($conexion, $nombre){
+      $existe=true;
+      if(isset($conexion)){
+
+        try{
+
+          $sql = "select * from usuarios where nombre = :nombre";
+
+          $sentencia = $conexion->prepare($sql);
+
+          $sentencia->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetchAll();
+
+          if(count($resultado)){
+            $existe = true;
+          }
+          else{
+            $existe=false;
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'Error: ' . $ex->getMessage();
+        }
+
+      }
+      return $existe;
+    }
+
+    public static function email_exite($conexion, $email){
+      $existe=true;
+      if(isset($conexion)){
+
+        try{
+
+          $sql = "select * from usuarios where email = :email";
+
+          $sentencia = $conexion->prepare($sql);
+
+          $sentencia->bindParam(':email', $email, PDO::PARAM_STR);
+
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetchAll();
+
+          if(count($resultado)){
+            $existe = true;
+          }
+          else{
+            $existe=false;
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'Error: ' . $ex->getMessage();
+        }
+
+      }
+      return $existe;
     }
 
 }
