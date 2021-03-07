@@ -30,7 +30,7 @@
   </select>
 </div>
 <div class="col-md-2">
-  <label for="inputZip" class="form-label">DNI</label>
+  <label for="inputZip" class="form-label">Código Postal</label>
   <input type="text" class="form-control" id="inputZip">
 </div>
 <div class="col-12">

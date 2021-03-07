@@ -4,6 +4,7 @@
   include_once "app/RepositorioUsuario.inc.php";
   include_once "app/ValidadorRegistro.inc.php";
   include_once "app/config.inc.php";
+  include_once "app/Redireccion.inc.php";
 
   if(isset($_POST['enviar'])){
     Conexion::abrir_conexion();
@@ -11,13 +12,15 @@
     $validador = new ValidadorRegistro($_POST['email'], $_POST['nombre'], $_POST['password'], $_POST['password2'], Conexion::obtener_conexion());
 
     if($validador->registro_valido()){
-      $usuario = new Usuario('', $validador->obtener_nombre(), $validador->obtener_email(), $validador->obtener_password(), '', '');
+      $usuario = new Usuario('', $validador->obtener_nombre(), $validador->obtener_email(), password_hash($validador->obtener_password(), PASSWORD_DEFAULT), '', '');
       $usuario_insertado = RepositorioUsuario::insertar_usuario(Conexion::obtener_conexion(), $usuario);
 
       if($usuario_insertado){
-        // Redirigir a LogIn
+        // Redirigir a registro_correcto
 
+        $cadena = $usuario->obtener_nombre();
 
+        Redireccion::redirigir(RUTA_REGISTRO_CORRECTO . "?nombre=" . $cadena);
 
       }
 
@@ -31,31 +34,31 @@
 <html>
   <head>
 
-      <title>Inicio sesión</title>
+      <title>Registrase</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" href="logo/logo_small_icon_only_inverted.png"/>
       <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/estilos.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/estilos.css?v=<?php echo time(); ?>" />
 
 
   </head>
   <body>
-      <header>
-        <div class="container logo-nav-container">
-          <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
-          <span class="menu-icon">Ver menú</span>
-          <nav class="navigation">
-              <ul>
-                  <li><a href="index.php">Inicio</a></li>
-                  <li><a href="logInPage.php">Log In</a></li>
-                  <li><a href="#">Sign In</a></li>
-                  <li><a href="#">Contacto</a></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
 
+    <header>
+      <div class="container logo-nav-container">
+        <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
+        <span class="menu-icon">Ver menú</span>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="logInPage.php">Log In</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
 
       <div class="registro-div">
         <form class="row g-3" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">

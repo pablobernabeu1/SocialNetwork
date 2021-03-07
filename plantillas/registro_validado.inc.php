@@ -27,7 +27,7 @@
 </div>
 <div class="col-12">
   <label for="inputAddress2" class="form-label">Password confirmation</label>
-  <input type="text" class="form-control" id="inputAddress2" name="password2">
+  <input type="password" class="form-control" id="inputAddress4" name="password2">
 
   <?php
     $validador -> mostrar_error_password2();
@@ -50,7 +50,7 @@
   </select>
 </div>
 <div class="col-md-2">
-  <label for="inputZip" class="form-label">DNI</label>
+  <label for="inputZip" class="form-label">Código Postal</label>
   <input type="text" class="form-control" id="inputZip">
 </div>
 <div class="col-12">

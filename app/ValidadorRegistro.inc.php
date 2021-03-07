@@ -15,7 +15,7 @@ class ValidadorRegistro {
   private $error_password;
   private $error_password2;
 
-  public function __construct($email, $nombre, $password, $password2, $conexion){
+  public function __construct($email, $nombre, $password, $password2, $conexion) {
     $this->aviso_inicio = "<br><div class='alert alert-danger' role='alert'>";
     $this->aviso_cierre = "</div>";
 
@@ -57,7 +57,7 @@ class ValidadorRegistro {
       return "El nombre no puede ocupar más de 24 caracteres.";
     }
 
-    if(RepositorioUsuario::nombre_exite($conexion, $nombre)){
+    if(RepositorioUsuario::nombre_exite($conexion, $nombre)){  // Decirle a Samu que haga esta funcion
       return "Este nombre ya está en uso, porfavor pruebe otro nombre.";
     }
 

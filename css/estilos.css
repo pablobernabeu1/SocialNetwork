@@ -84,7 +84,8 @@ footer {
     background: #f2f2f2;
     padding: 4rem 0;
     text-align: center;
-    margin: 500px;
+    margin-top: 300px;
+    width: 100%;
     bottom: 0;
 }
 
@@ -133,6 +134,7 @@ footer {
 .inicio-main {
   margin-left:20%;
   margin-right:20%;
+  margin-top: 75px;
 }
 
 
@@ -144,6 +146,17 @@ footer {
   margin-left:20%;
   margin-right:20%;
 }
+
+.div-registro-correcto {
+  margin-top:175px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: 5px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  background: #333;
+}
+
 
 @media only screen and (max-width: 767px) {
   .registro-div{
