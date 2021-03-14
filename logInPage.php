@@ -1,7 +1,29 @@
 <?php
+include_once "app/config.inc.php";
 include_once "app/Conexion.inc.php";
 include_once "app/RepositorioUsuario.inc.php";
-include_once "app/ValidadorRegistro.inc.php";
+include_once "app/ValidadorLogin.inc.php";
+
+if(isset($_POST["login"])){
+  Conexion::abrir_conexion();
+
+  $validador = new ValidadorLogin($_POST["email"], $_POST["password"], Conexion::obtener_conexion());
+
+  if($validador->obtener_error()==="" && !is_null($validador->obtener_usuario())){
+
+    //Iniciar sesión
+    //redirigir
+
+    //echo "Inicio de sesión OK";
+
+  }
+  else{
+    //echo "Inicio de sesión no OK";
+  }
+
+  Conexion::cerrar_conexion();
+
+}
 
 ?>
 
@@ -18,34 +40,56 @@ include_once "app/ValidadorRegistro.inc.php";
 
   </head>
   <body>
-      <header>
-        <div class="container logo-nav-container">
-          <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
-          <span class="menu-icon">Ver menú</span>
-          <nav class="navigation">
-              <ul>
-                  <li><a href="index.php">Inicio</a></li>
-                  <li><a href="#">Log In</a></li>
-                  <li><a href="signInPage.php">Sign In</a></li>
-                  <li><a href="#">Contacto</a></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
+
+    <header>
+      <div class="container logo-nav-container">
+        <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
+        <span class="menu-icon">Ver menú</span>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="signInPage.php">Sign In</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
 
       <main class="inicio-main">
-        <div class="mb-3 row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail4" placeholder="example@servicio.com">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="example@servicio.com" name="email"
+
+              <?php
+                if(isset($_POST["login"]) && isset($_POST["email"]) && !empty($_POST["email"])){
+                  echo "value=\"" . $_POST["email"] . "\"";
+                }
+
+               ?>
+
+              required autofocus>
+            </div>
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword">
+          <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" name="password" required>
+            </div>
           </div>
-        </div>
+
+          <?php
+            if(isset($_POST["login"])){
+              $validador->mostrar_error();
+            }
+          ?>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" name="login">Log in</button>
+          </div>
+        </form>
       </main>
 
 
