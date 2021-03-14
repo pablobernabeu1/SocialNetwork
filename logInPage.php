@@ -3,6 +3,12 @@ include_once "app/config.inc.php";
 include_once "app/Conexion.inc.php";
 include_once "app/RepositorioUsuario.inc.php";
 include_once "app/ValidadorLogin.inc.php";
+include_once "app/ControlSesion.inc.php";
+include_once "app/Redireccion.inc.php";
+
+if(ControlSesion::sesion_iniciada()){
+  Redireccion::redirigir(SERVIDOR);
+}
 
 if(isset($_POST["login"])){
   Conexion::abrir_conexion();
@@ -12,13 +18,15 @@ if(isset($_POST["login"])){
   if($validador->obtener_error()==="" && !is_null($validador->obtener_usuario())){
 
     //Iniciar sesión
+    ControlSesion::iniciar_sesion($validador->obtener_usuario()->obtener_id(), $validador->obtener_usuario()->obtener_nombre());
+
     //redirigir
+    Redireccion::redirigir(SERVIDOR);
 
-    //echo "Inicio de sesión OK";
 
-  }
-  else{
-    //echo "Inicio de sesión no OK";
+
+
+
   }
 
   Conexion::cerrar_conexion();
