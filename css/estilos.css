@@ -167,4 +167,27 @@ footer {
 
 
 
-/* Ejemplos de prueba */
+/* Pagina de contacto */
+
+.h1-contacto {
+  text-align: center;
+  color: white;
+  margin-bottom: 60px;
+}
+
+
+.div-contacto {
+  background: #333;
+  margin-top: 200px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: 5px solid black;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.logo-ins {
+  width: 100px;
+}
