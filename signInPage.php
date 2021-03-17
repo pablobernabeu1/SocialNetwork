@@ -45,20 +45,9 @@
   </head>
   <body>
 
-    <header>
-      <div class="container logo-nav-container">
-        <a href="index.php" class="logo"><img src="logo/logo_small_red.png" alt="alt"/></a>
-        <span class="menu-icon">Ver menú</span>
-        <nav class="navigation">
-            <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="logInPage.php">Log In</a></li>
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-      </div>
-    </header>
+      <?php
+        include "plantillas/navbar.inc.php";
+      ?>
 
       <div class="registro-div">
         <form class="row g-3" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
@@ -75,14 +64,8 @@
         </form>
       </div>
 
-      <footer>
-        <div class="container">
-          <p>Página diseñada por Pablo Bernabeu</p>
-        </div>
-      </footer>
-
-
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="js/script.js"></script>
+      <?php
+        include_once "plantillas/footerScripts.inc.php";
+      ?>
   </body>
 </html>

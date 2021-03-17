@@ -1,5 +1,5 @@
 <?php
-include_once "RepositorioUsuario.inc.php";
+include_once "RepositorioUsuario.inc.php";  //decir que lo ponga
 
   class ValidadorLogin {
 
