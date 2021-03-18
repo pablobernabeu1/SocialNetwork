@@ -41,9 +41,10 @@
                         </svg>  Settings
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li><a class="dropdown-item" href="#">Mis entradas</a></li>
                         <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
+                        <li><a class="dropdown-item" href="#">Borrar cuenta</a></li>
+
                       </ul>
                     </li>
                     <li>
