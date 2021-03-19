@@ -2,6 +2,7 @@
   include_once "app/Conexion.inc.php";
   include_once "app/RepositorioUsuario.inc.php";
   include_once "app/ValidadorRegistro.inc.php";
+  include_once "app/EscritorEntradas.inc.php";
 
 ?>
 
@@ -26,57 +27,12 @@
         <main class="main">
             <div class="container">
 
-                <h1>Hola soy Pablo Bernabeu</h1>
+                <h1><strong>Entradas</strong></h1>
+                <hr>
 
-                <p>Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra</p>
-
-                <p>Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra</p>
-
-                <p>Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra</p>
-
-                <p>Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra</p>
-
-                <p>Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra
-                Texto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestraTexto de muestra</p>
+                <?php
+                  EscritorEntradas::escribir_entradas();
+                ?>
 
             </div>
         </main>

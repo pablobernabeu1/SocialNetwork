@@ -3,11 +3,15 @@
   <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="example@servicio.com">
 </div>
 <div class="col-md-6">
-  <label for="inputPassword4" class="form-label">Nickname</label>
-  <input type="text" class="form-control" id="inputAddress" placeholder="pacopepe121" name="nombre">
+  <label for="inputAddress" class="form-label">Nickname</label>
+  <input type="text" class="form-control" id="inputAddress" placeholder="@usuario121" name="nombre">
 </div>
 <div class="col-12">
-  <label for="inputAddress" class="form-label">Password</label>
+  <label for="inputAddress" class="form-label">Nombre y Apellidos</label>
+  <input type="text" class="form-control" id="inputAddress" name="nombreCompleto">
+</div>
+<div class="col-12">
+  <label for="inputPassword4" class="form-label">Password</label>
   <input type="password" class="form-control" id="inputPassword4" name="password">
 </div>
 <div class="col-12">

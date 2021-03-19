@@ -5,10 +5,6 @@
 
   Conexion::abrir_conexion();
 
-
-
-  Conexion::cerrar_conexion();
-
 ?>
 
 

@@ -2,7 +2,7 @@
 
   include_once "config.inc.php";
   include_once "Conexion.inc.php";
-  include_once "Comentario.inc.php";
+
 
   class RepositorioComentario {
 
@@ -12,20 +12,27 @@
       if(isset($conexion)){
         try{
 
-          $sql = "insert into comentarios(autor_id, entrada-id, titulo, texto, fecha) values(:autor_id, :entrada_id, :titulo, :texto, NOW())";
+          include_once "Comentario.inc.php";
+
+          $sql = "insert into comentarios(autor_id, entrada_id, titulo, texto, fecha) values(:autor_id, :entrada_id, :titulo, :texto, NOW())";
 
           $sentencia = $conexion->prepare($sql);
 
-          $sentencia->bindParam(':autor_id', $comentario->obtener_autor_id(), PDO::PARAM_STR);
-          $sentencia->bindParam(':entrada_id', $comentario->obtener_entrada_id(), PDO::PARAM_STR);
-          $sentencia->bindParam(':titulo', $comentario->obtener_titulo(), PDO::PARAM_STR);
-          $sentencia->bindParam(':texto', $comentario->obtener_texto(), PDO::PARAM_STR);
+          $aut = $comentario->obtener_autor_id();
+          $ent = $comentario->obtener_entrada_id();
+          $tit = $comentario->obtener_titulo();
+          $tex = $comentario->obtener_texto();
+
+          $sentencia->bindParam(":autor_id", $aut, PDO::PARAM_STR);
+          $sentencia->bindParam(":entrada_id", $ent, PDO::PARAM_STR);
+          $sentencia->bindParam(":titulo", $tit, PDO::PARAM_STR);
+          $sentencia->bindParam(":texto", $tex, PDO::PARAM_STR);
 
           $comentario_insertado = $sentencia->execute();
 
         }
         catch(PDOException $ex){
-          print 'ERROR: ' . $ex.getMessage();
+          print 'ERROR: ' . $ex->getMessage();
         }
       }
 

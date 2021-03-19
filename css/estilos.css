@@ -154,7 +154,7 @@ footer {
   border: 5px solid black;
   border-radius: 8px;
   padding: 10px;
-  background: #333;
+  background: #A1959E;
 }
 
 
@@ -190,4 +190,35 @@ footer {
 
 .logo-ins {
   width: 100px;
+}
+
+
+/* Estilos para las entradas */
+
+.titulo-entrada {
+  width: 100%;
+  background: #262424;
+  color: white;
+  padding: 4px;
+  border: 5px solid #262424;
+  border-radius: 8px;
+}
+
+.cuerpo-entrada {
+  width: 100%;
+  background: grey;
+  border: 5px;
+  padding: 8px;
+}
+
+.dejar-espacio {
+  margin-top: 20px;
+}
+
+.justificar-texto {
+  text-align: justify;
+}
+
+.boton-centro {
+  text-align: left;
 }
