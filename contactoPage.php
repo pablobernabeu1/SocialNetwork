@@ -1,16 +1,15 @@
 <?php
   include_once "app/Conexion.inc.php";
+  include_once "app/EscritorEntradas.inc.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <title>Contacto</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="logo/logo_small_icon_only_inverted.png"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css?v=<?php echo time(); ?>" />
+    <?php
+      include_once "plantillas/headDeclaration.inc.php";
+    ?>
   </head>
   <body>
 

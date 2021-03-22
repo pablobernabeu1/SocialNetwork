@@ -23,16 +23,17 @@
 
   }
 
-  for($entradas = 0;$entradas<100; $entradas++){
+  for($entradas = 0; $entradas<100; $entradas++){
     $titulo = sa(10);
+    $url = $titulo;
     $text = lorem();
     $autor = rand(1, 100);
 
-    $entrada = new Entrada("", $autor, $titulo, $text, "", "");
+    $entrada = new Entrada("", $autor, $url, $titulo, $text, "", "");
     RepositorioEntrada::insertar_entrada(Conexion::obtener_conexion(), $entrada);
   }
 
-  for($comentarios = 0;$comentarios<100; $comentarios++){
+  for($comentarios = 0; $comentarios<100; $comentarios++){
     $titulo = sa(10);
     $text = lorem();
     $autor = rand(1, 100);

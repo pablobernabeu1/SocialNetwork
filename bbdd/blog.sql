@@ -16,6 +16,7 @@ create table usuarios (
 create table entradas (
   id int not null unique auto_increment,
   autor_id int not null,
+  url varchar(255) not null unique,
   titulo varchar(255) not null unique,
   texto text CHARACTER SET utf8 not null,
   fecha datetime not null,

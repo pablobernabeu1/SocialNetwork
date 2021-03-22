@@ -50,7 +50,10 @@
               <br>
 
               <div class="boton-centro">
-                <a class="btn btn-dark" href="#" role="button">Seguir leyendo</a>
+                <?php
+                  $url_entrada = $entrada->obtener_url();
+                ?>
+                <a class="btn btn-dark" href="<?php echo RUTA_ENTRADA . "?url=" . $url_entrada ?>" role="button">Seguir leyendo</a>
               </div>
             </div>
           </div>

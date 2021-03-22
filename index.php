@@ -1,4 +1,5 @@
 <?php
+
   include_once "app/Conexion.inc.php";
   include_once "app/RepositorioUsuario.inc.php";
   include_once "app/ValidadorRegistro.inc.php";
@@ -9,12 +10,11 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>pablobernabeupage</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="logo/logo_small_icon_only_inverted.png"/>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/estilos.css?v=<?php echo time(); ?>" />
+        <title>Pablo Bernabeu</title>
+
+        <?php
+          include_once "plantillas/headDeclaration.inc.php";
+        ?>
 
     </head>
     <body>

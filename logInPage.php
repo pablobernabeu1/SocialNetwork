@@ -35,11 +35,9 @@ if(isset($_POST["login"])){
   <head>
 
       <title>Inicio sesión</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="shortcut icon" href="logo/logo_small_icon_only_inverted.png"/>
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/estilos.css?v=<?php echo time(); ?>" />
+      <?php
+        include_once "plantillas/headDeclaration.inc.php";
+      ?>
 
   </head>
   <body>
@@ -83,13 +81,6 @@ if(isset($_POST["login"])){
           </div>
         </form>
       </main>
-
-
-      <footer>
-        <div class="container">
-          <p>Página diseñada por Pablo Bernabeu</p>
-        </div>
-      </footer>
 
 
       <?php

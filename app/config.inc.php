@@ -12,3 +12,9 @@ define("RUTA_REGISTRO", SERVIDOR."/signInPage.php");
 define("RUTA_REGISTRO_CORRECTO", SERVIDOR."/registro-correcto.php");
 define("RUTA_LOGIN", SERVIDOR."/logInPage.php");
 define("RUTA_LOGOUT", SERVIDOR . "/logout.php");
+define("RUTA_ENTRADA", SERVIDOR . "/entrada.php");
+
+// Recursos
+
+define("RUTA_CSS", SERVIDOR . "/css/");
+define("RUTA_JS", SERVIDOR . "/js/");

@@ -66,7 +66,7 @@ class RepositorioUsuario {
       if(isset($conexion)){
         try{
 
-          $sql = "insert into usuarios(nombre,email,password, fecha_registro, activo) values(:nombre, :email, :password, NOW(), 0)";
+          $sql = "insert into usuarios(nombre, email, password, fecha_registro, activo) values(:nombre, :email, :password, NOW(), 0)";
 
           $sentencia = $conexion->prepare($sql);
 
