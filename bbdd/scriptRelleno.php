@@ -46,7 +46,7 @@
 
 
   function sa($longitud){
-    $caracteres = "º123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    $caracteres = "º123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
     $numero_caracteres = strlen($caracteres);
     $string_aleatorio = "";
 
