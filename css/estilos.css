@@ -193,7 +193,7 @@ footer {
 }
 
 
-/* Estilos para las entradas */
+/* Estilos para las entradas en la página de inicio */
 
 .titulo-entrada {
   width: 100%;
@@ -221,4 +221,50 @@ footer {
 
 .boton-centro {
   text-align: left;
+}
+
+/* Estilos para las entradas en su propia página */
+
+.titulo-entrada-v2 {
+  width: 100%;
+  background: #262424;
+  color: white;
+  padding: 10px;
+  border: 5px solid #262424;
+  text-align: left;
+}
+
+.fondo-entrada {
+  background: #606773;
+  width: 70%;
+  margin-top: 300px;
+}
+
+.dejar-espacio-entrada {
+  margin-top: 200px;
+}
+
+.entrada-usuario {
+  text-align: left;
+  background: #262424;
+  color: white;
+  padding: 10px;
+  padding-top: 10px;
+}
+
+.cuerpo-entrada-v2 {
+  width: 100%;
+  background: #262424;
+  color: white;
+  border: 5px;
+  padding: 10px;
+  padding-top: 35px;
+}
+
+.entrada-fecha {
+  text-align: left;
+  background: #262424;
+  color: white;
+  padding: 10px;
+  padding-top: 10px;
 }
