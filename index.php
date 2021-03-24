@@ -11,18 +11,14 @@
 <html lang="es">
     <head>
         <title>Pablo Bernabeu</title>
-
         <?php
           include_once "plantillas/headDeclaration.inc.php";
         ?>
-
     </head>
     <body>
-
         <?php
           include "plantillas/navbar.inc.php";
         ?>
-
 
         <main class="main">
             <div class="container">
@@ -37,10 +33,8 @@
             </div>
         </main>
 
-
         <?php
           include_once "plantillas/footerScripts.inc.php";
         ?>
-
     </body>
 </html>

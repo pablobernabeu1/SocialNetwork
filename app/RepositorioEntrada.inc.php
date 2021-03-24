@@ -98,4 +98,33 @@
       return $entrada;
     }
 
+    public static function obtener_entradas_al_azar($conexion, $limite){
+      $entradas=[];
+
+      if(isset($conexion)){
+        try{
+
+          $sql = "select * from entradas order by rand() limit $limite";
+
+          $sentencia = $conexion->prepare($sql);
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetchAll();
+
+          if(count($resultado)){
+            foreach($resultado as $fila){
+              $entradas[] = new Entrada($fila["id"], $fila["autor_id"], $fila["url"], $fila["titulo"], $fila["texto"], $fila["fecha"], $fila["activa"]);
+            }
+          }
+
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $entradas;
+    }
+
   }

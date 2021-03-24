@@ -5,8 +5,10 @@ include_once "app/Conexion.inc.php";
 include_once "app/Redireccion.inc.php";
 
 include_once "app/Entrada.inc.php";
+include_once "app/Comentario.inc.php";
 include_once "app/RepositorioEntrada.inc.php";
 include_once "app/RepositorioUsuario.inc.php";
+include_once "app/RepositorioComentario.inc.php";
 
 Conexion::abrir_conexion();
 
@@ -77,22 +79,24 @@ Conexion::cerrar_conexion();
           </div>
         </div>
       </div>
+
+      <?php
+        include_once "plantillas/entradas_al_azar.inc.php";
+      ?>
+      <br>
+      <?php
+
+        $comentarios = RepositorioComentario::obtener_comentarios(Conexion::obtener_conexion(), $entrada->obtener_id());
+
+        if(count($comentarios)>0){
+          include_once "plantillas/comentarios_entrada.inc.php";
+        }
+        else{
+          echo "<p>Todavía no hay comentarios.</p>";
+        }
+      ?>
+
     </div>
-
-
-
-    <?php // añadir estilo a las entradas.
-      /*
-      echo "<br>";
-      echo "<br>";
-      echo "<br>";
-      echo "<br>";
-      echo "<br>";
-      echo $entrada->obtener_titulo();
-      echo "<br>";
-      echo nl2br($entrada->obtener_texto());
-      */
-    ?>
 
     <?php
       include_once "plantillas/footerScripts.inc.php";
