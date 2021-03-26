@@ -3,6 +3,7 @@
   include_once "app/Conexion.inc.php";
   include_once "app/RepositorioEntrada.inc.php";
   include_once "app/EscritorEntradas.inc.php";
+  include_once "app/RepositorioUsuario.inc.php";
 
 ?>
 
@@ -25,12 +26,17 @@
           <div class="row">
             <div class="col-md-12">
               <div>
-                <div>
+                <div class="titulo-entrada-comentarios">
                   <?php echo $comentario->obtener_titulo(); ?>
                 </div>
-                <div>
+                <div class="cuerpo-entrada">
                   <div class="col-md-2">
-                    <?php echo $comentario->obtener_autor_id() ?>
+                    <?php
+
+                      $usuario = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $comentario->obtener_autor_id());
+                      echo $usuario->obtener_nombre();
+
+                    ?>
                   </div>
                   <div class="col-md-10">
                     <p>

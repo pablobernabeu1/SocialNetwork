@@ -34,6 +34,13 @@
                 echo EscritorEntradas::resumir_texto(nl2br($entrada_actual->obtener_texto()));
               ?>
             </p>
+            <br>
+            <div class="boton-centro">
+              <?php
+                $url_entrada = $entrada_actual->obtener_url();
+              ?>
+              <a class="btn btn-dark" href="<?php echo RUTA_ENTRADA . "?url=" . $url_entrada ?>" role="button">Seguir leyendo</a>
+            </div>
           </div>
         </div>
       </div>
