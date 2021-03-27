@@ -31,12 +31,14 @@
                 </div>
                 <div class="cuerpo-entrada">
                   <div class="col-md-2">
-                    <?php
+                    <strong>
+                      <?php
 
-                      $usuario = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $comentario->obtener_autor_id());
-                      echo $usuario->obtener_nombre();
+                        $usuario = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $comentario->obtener_autor_id());
+                        echo $usuario->obtener_nombre();
 
-                    ?>
+                      ?>
+                    </strong>
                   </div>
                   <div class="col-md-10">
                     <p>

@@ -280,3 +280,27 @@ footer {
   border: 5px solid #262424;
   border-radius: 8px;
 }
+
+
+/* Estilos para el perfil */
+
+.barra-perfil {
+  margin-top:150px;
+}
+
+.elementos-barra {
+  text-decoration: none;
+}
+
+.sidebar {
+  background: #262424;
+  padding: 8px;
+}
+
+.botones-color {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
