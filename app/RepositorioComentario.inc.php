@@ -72,4 +72,31 @@
       return $comentarios;
     }
 
+    public static function contar_comentarios($conexion, $id_usuario){
+      $total=0;
+
+      if(isset($conexion)){
+        try{
+
+          $sql = "select count(*) as total from comentarios where autor_id=:id_usuario";
+          $sentencia = $conexion->prepare($sql);
+
+          $sentencia->bindParam(":id_usuario", $id_usuario, PDO::PARAM_STR);
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetch();
+
+          if(!empty($resultado)){
+            $total = $resultado["total"];
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $total;
+    }
+
   }

@@ -86,7 +86,7 @@ Conexion::cerrar_conexion();
       <br>
       <?php
 
-        $comentarios = RepositorioComentario::obtener_comentarios(Conexion::obtener_conexion(), $entrada->obtener_id());
+        $comentarios = RepositorioComentario::obtener_comentarios(Conexion::obtener_conexion(), $entrada->obtener_id());  // VAMOS POR AQUI
 
         if(count($comentarios)>0){
           include_once "plantillas/comentarios_entrada.inc.php";

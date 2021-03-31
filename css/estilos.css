@@ -304,3 +304,27 @@ footer {
 a {
   text-decoration: none;
 }
+
+/* Estilos para los gestores */
+
+#gg-entradas {
+  background: deepskyblue;
+}
+
+#gg-comentarios {
+  background: #029ac4;
+}
+
+#gg-favoritos {
+  background: #394a66;
+}
+
+.gg-elemento {
+  color: white;
+}
+
+.gg-elemento:hover {
+  background: #2b2b2b !important;
+  color:deepskyblue;
+  transition: all 0.2s linear;
+}

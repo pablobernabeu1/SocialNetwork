@@ -2,6 +2,8 @@
 
   include_once "app/Conexion.inc.php";
   include_once "app/EscritorEntradas.inc.php";
+  include_once "app/RepositorioEntrada.inc.php";
+  include_once "app/RepositorioComentario.inc.php";
 
   $var = $_GET["var"];
 ?>
@@ -26,20 +28,26 @@
     ?>
     <?php
       switch ($var) {
-        case "generico":
-          include_once "app/gestor-generico.inc.php";
-          break;
 
         case "entradas":
-          include_once "app/gestor-entradas.inc.php";
+
+          include_once "plantillas/gestor-entradas.inc.php";
           break;
 
         case "comentarios":
-          include_once "app/gestor-comentarios.inc.php";
+          include_once "plantillas/gestor-comentarios.inc.php";
           break;
 
         case "favoritos":
-          include_once "app/gestor-favoritos.inc.php";
+          include_once "plantillas/gestor-favoritos.inc.php";
+          break;
+
+        default:
+          $entradas_activas = RepositorioEntrada::contar_entradas_activas(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
+          $borradores = RepositorioEntrada::contar_borradores(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
+          $comentarios_escritos = RepositorioComentario::contar_comentarios(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
+
+          include_once "plantillas/gestor-generico.inc.php";
           break;
       }
 
