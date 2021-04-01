@@ -72,7 +72,6 @@
 
             <div class="justificar-texto cuerpo-entrada-v2">
               <?php
-                //echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id() . "?id_usuario=" . $_SESSION["id_usuario"];
                 echo nl2br($entrada->obtener_texto());
               ?>
             </div>

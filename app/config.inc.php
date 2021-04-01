@@ -18,6 +18,7 @@ define("RUTA_GESTOR_ENTRADAS", SERVIDOR . "/app/gestor-entradas.inc.php");
 define("RUTA_GESTOR_COMENTARIOS", SERVIDOR . "/gestor-comentarios.inc.php");
 define("RUTA_GESTOR_FAVORITOS", SERVIDOR . "/gestor-favoritos.inc.php");
 define("RUTA_INSERTAR_FAVORITOS", "GuardarEntradaFavorito.php");
+define("RUTA_ENTRADAS_FAVORITAS", SERVIDOR."/entradas-favoritas.php");
 
 // Recursos
 

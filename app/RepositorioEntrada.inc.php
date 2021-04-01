@@ -204,4 +204,67 @@
       return $insertada;
     }
 
+    public static function obtener_entradas_favoritas_de_usuario($conexion, $id){
+      $entradas_favoritas = [];
+
+      if(isset($conexion)){
+
+        try{
+
+          include_once "Entrada.inc.php";
+
+          $sql = "select * from entradas_favoritas where id_usuario=:id_usuario";
+
+          $sentencia = $conexion->prepare($sql);
+          $sentencia->bindParam(":id_usuario", $id, PDO::PARAM_STR);
+
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetchAll();
+
+          if(count($resultado)){
+            foreach ($resultado as $fila) {
+              $entradas_favoritas[] = $fila["id_entrada"];
+            }
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+
+      }
+
+      return $entradas_favoritas;
+    }
+
+    public static function obtener_entrada_por_id($conexion, $id_entrada){
+      $entrada = null;
+
+      if(isset($conexion)){
+        try{
+
+          include_once "Entrada.inc.php";
+
+          $sql = "select * from entradas where id=:id_entrada";
+
+          $sentencia = $conexion->prepare($sql);
+          $sentencia->bindParam(":id_entrada", $id_entrada, PDO::PARAM_STR);
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetch();
+
+          if(!empty($resultado)){
+            $entrada = new Entrada($resultado["id"], $resultado["autor_id"], $resultado["url"], $resultado["titulo"], $resultado["texto"], $resultado["fecha"], $resultado["activa"]);
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $entrada;
+    }
+
   }
