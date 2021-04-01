@@ -181,4 +181,27 @@
       return $total;
     }
 
+    public static function insertar_entrada_a_favoritos($conexion, $id_usuario, $id_entrada){
+      $insertada=false;
+
+      if(isset($conexion)){
+        try{
+          $sql = "insert into entradas_favoritas(id_usuario, id_entrada) values(:id_usuario, :id_entrada)";
+
+          $sentencia = $conexion->prepare($sql);
+
+          $sentencia->bindParam(":id_usuario", $id_usuario, PDO::PARAM_STR);
+          $sentencia->bindParam(":id_entrada", $id_entrada, PDO::PARAM_STR);
+
+          $insertada = $sentencia->execute();
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $insertada;
+    }
+
   }

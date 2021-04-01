@@ -45,3 +45,17 @@ create table comentarios(
         on update cascade
         on delete restrict
 );
+
+create table entradas_favoritas (
+    id_usuario int not null,
+    id_entrada int not null,
+    primary key(id_usuario, id_entrada),
+    foreign key(id_usuario)
+      references usuarios(id)
+        on update cascade
+        on delete restrict,
+    foreign key(id_entrada)
+      references entradas(id)
+        on update cascade
+        on delete restrict
+);

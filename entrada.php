@@ -1,27 +1,27 @@
 <?php
 
-include_once "app/config.inc.php";
-include_once "app/Conexion.inc.php";
-include_once "app/Redireccion.inc.php";
+  include_once "app/config.inc.php";
+  include_once "app/Conexion.inc.php";
+  include_once "app/Redireccion.inc.php";
 
-include_once "app/Entrada.inc.php";
-include_once "app/Comentario.inc.php";
-include_once "app/RepositorioEntrada.inc.php";
-include_once "app/RepositorioUsuario.inc.php";
-include_once "app/RepositorioComentario.inc.php";
+  include_once "app/Entrada.inc.php";
+  include_once "app/Comentario.inc.php";
+  include_once "app/RepositorioEntrada.inc.php";
+  include_once "app/RepositorioUsuario.inc.php";
+  include_once "app/RepositorioComentario.inc.php";
 
-Conexion::abrir_conexion();
+  Conexion::abrir_conexion();
 
-if(isset($_GET["url"]) && !empty($_GET["url"])){
-  $url_entrada = $_GET["url"];
-}
-else{
-  Redireccion::redirigir(SERVIDOR);
-}
+  if(isset($_GET["url"]) && !empty($_GET["url"])){
+    $url_entrada = $_GET["url"];
+  }
+  else{
+    Redireccion::redirigir(SERVIDOR);
+  }
 
-$entrada = RepositorioEntrada::obtener_entrada_por_url(Conexion::obtener_conexion(), $url_entrada);
-$id_entrada = $entrada->obtener_id();
-Conexion::cerrar_conexion();
+  $entrada = RepositorioEntrada::obtener_entrada_por_url(Conexion::obtener_conexion(), $url_entrada);
+  $id_entrada = $entrada->obtener_id();
+  Conexion::cerrar_conexion();
 
 ?>
 
@@ -72,12 +72,20 @@ Conexion::cerrar_conexion();
 
             <div class="justificar-texto cuerpo-entrada-v2">
               <?php
-                echo nl2br($entrada->obtener_texto());  // para hcer los saltos de linea.
+                //echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id() . "?id_usuario=" . $_SESSION["id_usuario"];
+                echo nl2br($entrada->obtener_texto());
               ?>
             </div>
 
           </div>
         </div>
+      </div>
+
+      <br>
+      <div class="col-md-5">
+        <a href="<?php echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id() . "&id_usuario=" . $_SESSION["id_usuario"]; ?>">
+          <button type="button" class="btn btn-light">Guardar entrada</button>
+        </a>
       </div>
 
       <?php
