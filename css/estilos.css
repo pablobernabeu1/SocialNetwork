@@ -328,3 +328,11 @@ a {
   color:deepskyblue;
   transition: all 0.2s linear;
 }
+
+
+/* Estilos para las entradas favoritas */
+
+.no-mensajes-favoritos {
+  margin-top: 200px;
+  margin-left: 20%;
+}

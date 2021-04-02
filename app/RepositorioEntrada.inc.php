@@ -267,4 +267,27 @@
       return $entrada;
     }
 
+    public static function quitar_entrada_de_favoritos($conexion, $id_usuario, $id_entrada){
+      $quitada = false;
+
+      if(isset($conexion)){
+        try{
+
+          $sql = "delete from entradas_favoritas where id_usuario=:id_usuario and id_entrada=:id_entrada";
+
+          $sentencia = $conexion->prepare($sql);
+          $sentencia->bindParam(":id_usuario", $id_usuario, PDO::PARAM_STR);
+          $sentencia->bindParam(":id_entrada", $id_entrada, PDO::PARAM_STR);
+
+          $quitada = $sentencia->execute();
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $quitada;
+    }
+
   }

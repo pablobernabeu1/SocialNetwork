@@ -72,6 +72,8 @@
 
             <div class="justificar-texto cuerpo-entrada-v2">
               <?php
+              //echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id() . "&id_usuario=" . $_SESSION["id_usuario"];
+                $id_usuario_pasar = $_SESSION["id_usuario"];
                 echo nl2br($entrada->obtener_texto());
               ?>
             </div>
@@ -82,7 +84,7 @@
 
       <br>
       <div class="col-md-5">
-        <a href="<?php echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id() . "&id_usuario=" . $_SESSION["id_usuario"]; ?>">
+        <a href="<?php echo RUTA_INSERTAR_FAVORITOS . "?id_entrada=" . $entrada->obtener_id(); ?>">
           <button type="button" class="btn btn-light">Guardar entrada</button>
         </a>
       </div>
