@@ -81,7 +81,7 @@
         <br>
         <br>
         <div class="container">
-          <a href="#"><button class="btn btn-dark">Comprar</button></a>
+          <a href="enviarCorreoDeCompra.php"><button class="btn btn-dark">Comprar</button></a>
         </div>
         <?php
       }
