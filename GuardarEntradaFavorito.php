@@ -21,5 +21,4 @@
 
   Conexion::cerrar_conexion();
 
-
 ?>

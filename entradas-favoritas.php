@@ -1,6 +1,6 @@
 <?php
   include_once "app/Conexion.inc.php";
-  include_once "app/EscritorEntradas.inc.php";
+  include_once "app/config.inc.php";
   include_once "app/RepositorioEntrada.inc.php";
   include_once "app/RepositorioUsuario.inc.php";
   include_once "app/ControlSesion.inc.php";
@@ -22,7 +22,7 @@
       include_once "plantillas/navbar.inc.php";
     ?>
     <?php
-      $entradas_favoritas = RepositorioEntrada::obtener_entradas_favoritas_de_usuario(Conexion::obtener_conexion(), $id_usuario_verificado);
+      $entradas_favoritas = RepositorioEntrada::obtener_entradas_favoritas_de_usuario(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
 
       if(count($entradas_favoritas)){
 

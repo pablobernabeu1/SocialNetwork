@@ -20,7 +20,7 @@ p {
     max-width: 850px;
     margin: 0 auto;
 }
-
+/*
 header {
     background: #333;
     color: white;
@@ -37,7 +37,7 @@ header {
         color: white;
         text-decoration: none;
     }
-
+*/
 .logo-nav-container {
     display: flex;
     justify-content: space-between;
@@ -77,7 +77,7 @@ header {
 
 
 main {
-    padding-top: 12rem;
+    padding-top: 4rem;
 }
 
 footer {
@@ -142,7 +142,7 @@ footer {
 /* Estilos para la página de Sign In */
 
 .registro-div {
-  margin-top: 150px;
+  margin-top: 75px;
   margin-left:20%;
   margin-right:20%;
 }
@@ -178,7 +178,7 @@ footer {
 
 .div-contacto {
   background: #333;
-  margin-top: 200px;
+  margin-top: 75px;
   margin-left: 20%;
   margin-right: 20%;
   border: 5px solid black;
@@ -241,7 +241,7 @@ footer {
 }
 
 .dejar-espacio-entrada {
-  margin-top: 200px;
+  margin-top: 75px;
 }
 
 .entrada-usuario {
@@ -285,7 +285,7 @@ footer {
 /* Estilos para el perfil */
 
 .barra-perfil {
-  margin-top:150px;
+  margin-top:75px;
 }
 
 .elementos-barra {

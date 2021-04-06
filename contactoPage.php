@@ -1,6 +1,6 @@
 <?php
   include_once "app/Conexion.inc.php";
-  include_once "app/EscritorEntradas.inc.php";
+  include_once "app/config.inc.php";
 ?>
 
 <!DOCTYPE html>

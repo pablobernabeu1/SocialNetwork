@@ -1,7 +1,7 @@
 <?php
 
   include_once "app/Conexion.inc.php";
-  include_once "app/EscritorEntradas.inc.php";
+  include_once "app/config.inc.php";
   include_once "app/RepositorioEntrada.inc.php";
   include_once "app/RepositorioComentario.inc.php";
 
