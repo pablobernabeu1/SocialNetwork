@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Pablo Bernabeu</title>
+        <title>Inicio</title>
         <?php
           include_once "plantillas/headDeclaration.inc.php";
         ?>
