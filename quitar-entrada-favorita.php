@@ -21,6 +21,4 @@
     Redireccion::redirigir(SERVIDOR);
   }
 
-
-
 ?>

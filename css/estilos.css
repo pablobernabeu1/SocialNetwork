@@ -15,6 +15,10 @@ p {
     margin-bottom: 1.6em;
 }
 
+nav {
+  background: #333; 
+}
+
 .container {
     width: 85%;
     max-width: 850px;
