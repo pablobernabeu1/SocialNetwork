@@ -2,18 +2,17 @@
   session_start();
   include_once "app/Conexion.inc.php";
   include_once "app/config.inc.php";
-  include_once "app/RepositorioEntrada.inc.php";
-  include_once "app/RepositorioUsuario.inc.php";
-  include_once "app/ControlSesion.inc.php";
   include_once "app/Entrada.inc.php";
+  include_once "app/RepositorioEntrada.inc.php";
+  include_once "app/Usuario.inc.php";
+  include_once "app/RepositorioUsuario.inc.php";
+
 ?>
 
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
   <head>
-    <title>
-      Entradas favoritas
-    </title>
+    <title>Mis entradas</title>
     <?php
       include_once "plantillas/headDeclaration.inc.php";
     ?>
@@ -26,38 +25,40 @@
     <div class="container">
       <div class="row">
 
-        <p class="texto-panel"><strong>Entradas favoritas</strong></p>
+        <p class="texto-panel"><strong>Mis entradas</strong></p>
 
         <hr>
 
       </div>
     </div>
-    
+
     <?php
-      $entradas_favoritas = RepositorioEntrada::obtener_entradas_favoritas_de_usuario(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
+      $mis_entradas = RepositorioEntrada::obtener_mis_entradas(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
 
-      if(count($entradas_favoritas)){
+      if(count($mis_entradas)){
 
-        for($i=0; $i<count($entradas_favoritas); $i++){
-          $id_entrada_obtenida = $entradas_favoritas[$i];
-          $entrada_obtenida = RepositorioEntrada::obtener_entrada_por_id(Conexion::obtener_conexion(), $id_entrada_obtenida);
+        for($i=0; $i<count($mis_entradas); $i++){
+          $entrada = $mis_entradas[$i];
 
           ?>
+
           <div class="container">
             <div class="row dejar-espacio-entrada">
               <div class="col-md-12">
+
                 <div class="titulo-entrada-v2">
                   <h3>
                     <strong>
                       <?php
-                        echo $entrada_obtenida->obtener_titulo();
+                        echo $entrada->obtener_titulo();
                       ?>
                     </strong>
                   </h3>
                 </div>
+
                 <div class="entrada-usuario">
                   <?php
-                    $autor = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $entrada_obtenida->obtener_autor_id());
+                    $autor = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $entrada->obtener_autor_id());
                   ?>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -66,48 +67,39 @@
                 </div>
                 <div class="entrada-fecha">
                   <?php
-                    echo $entrada_obtenida->obtener_fecha();
+                    echo $entrada->obtener_fecha();
                   ?>
                 </div>
 
                 <div class="justificar-texto cuerpo-entrada-v2">
                   <?php
-                    echo nl2br($entrada_obtenida->obtener_texto());
+                    echo nl2br($entrada->obtener_texto());
                   ?>
                 </div>
               </div>
-            </div>
 
-            <br>
-            <div class="col-md-5">
-              <a href="<?php echo RUTA_QUITAR_FAVORITAS . "?id_entrada=" . $entrada_obtenida->obtener_id(); ?>">
-                <button type="button" class="btn btn-light">Quitar entrada</button>
-              </a>
-            </div>
+              </div>
 
+              <br>
+              <div class="col-md-5">
+                <a href="<?php echo RUTA_QUITAR_FAVORITAS . "?id_entrada=" . $entrada->obtener_id(); ?>">
+                  <button type="button" class="btn btn-light">Quitar entrada</button>
+                </a>
+              </div>
+
+            </div>
           </div>
 
           <?php
         }
-        ?>
-        <br>
-        <br>
 
-        <?php
       }
       else{
-        ?>
 
-        <div class="no-mensajes-favoritos">
-          No hay mensajes favoritos
-        </div>
-
-        <?php
+        //echo "Aún no has publicado ninguna entrada.";
       }
 
-
     ?>
-
 
 
     <?php

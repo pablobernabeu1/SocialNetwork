@@ -290,4 +290,35 @@
       return $quitada;
     }
 
+    public static function obtener_mis_entradas($conexion, $id_usuario){
+      $entradas = [];
+
+      if(isset($conexion)){
+        try{
+
+          include_once "Entrada.inc.php";
+
+          $sql = "select * from entradas where autor_id=:id_usuario order by id desc";
+          $sentencia = $conexion->prepare($sql);
+          $sentencia->bindParam(":id_usuario", $id_usuario, PDO::PARAM_STR);
+
+          $sentencia->execute();
+
+          $resultado = $sentencia->fetchAll();
+
+          if(count($resultado)){
+            foreach ($resultado as $fila) {
+              $entradas[] = new Entrada($fila["id"], $fila["autor_id"], $fila["url"], $fila["titulo"], $fila["texto"], $fila["fecha"], $fila["activa"]);
+            }
+          }
+
+        }
+        catch(PDOException $ex){
+          print 'ERROR: ' . $ex->getMessage();
+        }
+      }
+
+      return $entradas;
+    }
+
   }

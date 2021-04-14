@@ -11,13 +11,10 @@
   $id_entrada = $_GET["id_entrada"];
   $id_usuario = $_SESSION["id_usuario"];
 
-  echo "Usuario: " . $id_usuario . "<br>";
-  echo "Entrada: " . $id_entrada . "<br>";
-
   $insertado = RepositorioEntrada::insertar_entrada_a_favoritos(Conexion::obtener_conexion(), $id_usuario, $id_entrada);
 
   Conexion::cerrar_conexion();
 
-  Redireccion::redirigir(SERVIDOR);
+  Redireccion::redirigir(RUTA_ENTRADAS_FAVORITAS);
 
 ?>

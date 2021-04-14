@@ -368,3 +368,13 @@ a {
   font-size: 40px;
   text-align: center;
 }
+
+/* Estilos para la pagina de mis entradas */
+
+.mis-entradas-espacio {
+  margin-top: 65px;
+}
+
+.mis-entradas-titulo {
+  text-align: center;
+}

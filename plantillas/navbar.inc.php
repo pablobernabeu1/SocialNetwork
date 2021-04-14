@@ -95,7 +95,7 @@
                   Ajustes
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Mis entradas</a></li>
+                  <li><a class="dropdown-item" href="<?php echo RUTA_MIS_ENTRADAS ?>">Mis entradas</a></li>
                   <li><a class="dropdown-item" href="#">Cambiar contraseña</a></li>
                   <li><a class="dropdown-item" href="#">Borrar cuenta</a></li>
                   <li>
