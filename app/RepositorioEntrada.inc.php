@@ -45,7 +45,7 @@
       if(isset($conexion)){
         try{
 
-          $sql = "select * from entradas order by fecha desc limit 5";
+          $sql = "select * from entradas order by fecha desc limit 10";
           $sentencia = $conexion->prepare($sql);
 
           $sentencia->execute();

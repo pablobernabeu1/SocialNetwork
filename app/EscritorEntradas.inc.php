@@ -80,4 +80,16 @@
       return $resultado;
     }
 
+    function sa($longitud){
+      $caracteres = "º123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+      $numero_caracteres = strlen($caracteres);
+      $string_aleatorio = "";
+
+      for($i=0; $i<$longitud; $i++){
+        $string_aleatorio .= $caracteres[rand(0, $numero_caracteres-1)];
+      }
+
+      return $string_aleatorio;
+    }
+
   }
