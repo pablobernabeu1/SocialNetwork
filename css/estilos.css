@@ -273,6 +273,15 @@ footer {
   padding-top: 10px;
 }
 
+.nuevo-comentario {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.nuevo-titulo-comentario {
+  text-align: center;
+}
+
 /* Estilos para los comentarios de las entradas */
 
 .titulo-entrada-comentarios {

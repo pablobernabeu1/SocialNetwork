@@ -1,10 +1,10 @@
 <?php
-
+  session_start();
   include_once "app/RepositorioUsuario.inc.php";
   include_once "app/Usuario.inc.php";
   include_once "app/Conexion.inc.php";
 
-  include_once "plantillas/navbar.inc.php";
+  Conexion::abrir_conexion();
 
   //Conseguimos el usuario que ha iniciado sesión
   $usuario = RepositorioUsuario::obtener_usuario_por_id(Conexion::obtener_conexion(), $_SESSION["id_usuario"]);
@@ -27,6 +27,6 @@
   echo "<script></script>";
 
 
-  include_once "plantillas/footerScripts.inc.php";
+  Conexion::cerrar_conexion();
 
 ?>

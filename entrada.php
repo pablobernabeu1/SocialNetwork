@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   include_once "app/config.inc.php";
   include_once "app/Conexion.inc.php";
   include_once "app/Redireccion.inc.php";
@@ -22,6 +22,18 @@
   $entrada = RepositorioEntrada::obtener_entrada_por_url(Conexion::obtener_conexion(), $url_entrada);
   $id_entrada = $entrada->obtener_id();
   Conexion::cerrar_conexion();
+
+  if(isset($_POST["guardar"])){
+
+    Conexion::abrir_conexion();
+
+    $comentario = new Comentario("", $_SESSION["id_usuario"], $id_entrada, $_POST["titulo"], $_POST["texto-comentario"], "");
+
+    $comentario_insertado = RepositorioComentario::insertar_comentario(Conexion::obtener_conexion(), $comentario);
+
+    Conexion::cerrar_conexion();
+
+  }
 
 ?>
 
@@ -89,9 +101,36 @@
         </a>
       </div>
 
-      <?php
-        include_once "plantillas/entradas_al_azar.inc.php";
-      ?>
+      <hr>
+
+      <div class="nuevo-comentario">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="nuevo-titulo-comentario">
+              <p><strong>Deja tu comentario</strong></p>
+            </div>
+            <div class="cuerpo-nuevo-comentario">
+              <form class="row g-3" method="POST" action="<?php echo RUTA_ENTRADA . "?url=" . $entrada->obtener_url(); ?>">
+                <div class="col-md-12">
+                  <label for="titulo" class="form-label">Titulo</label>
+                  <input type="text" class="form-control" id="titulo-entrada" name="titulo" required>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="contenido" class="form-label">Descripción</label>
+                  <textarea class="form-control" rows="8" id="contenido-entrada" name="texto-comentario" required></textarea>
+                </div>
+
+                <div>
+                  <button type="submit" class="btn btn-dark" name="guardar">Publicar</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <br>
       <?php
 
@@ -103,6 +142,10 @@
         else{
           echo "<p>Todavía no hay comentarios.</p>";
         }
+      ?>
+      <br>
+      <?php
+        include_once "plantillas/entradas_al_azar.inc.php";
       ?>
 
     </div>
