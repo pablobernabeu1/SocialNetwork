@@ -1,2 +1,2 @@
 # ProyectoWeb
-# Proyecto donde guardaré todo el proceso de creación y actualización de mi proyecto Web.
+# Red social hecha utilizando HTML, CSS, JS y Bootstrap como Front-End; y PHP y MySQL como Back-End
